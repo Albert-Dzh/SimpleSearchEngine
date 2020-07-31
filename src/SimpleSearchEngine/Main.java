@@ -3,7 +3,6 @@ package SimpleSearchEngine;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class Main {
@@ -31,10 +30,10 @@ public class Main {
 
     static void getDataFrom(String fileN) {
 
-        try  {
-            Path p = Paths.get(fileN);
-            e = new Elements(Files.readAllLines(p));
-        } catch (Exception ex) {
+        try {
+            e = new Elements(Files.readAllLines(Path.of(fileN)));
+        }
+        catch (Exception ex) {
             System.out.println("'There is no such file exception'\nBye!");
             System.exit(0);
         }
